@@ -8,5 +8,4 @@ void print_numbers(void){
 	for(;i<58;i++)
 		_putchar(i);
 	_putchar(10);
-	return(0);
 }
