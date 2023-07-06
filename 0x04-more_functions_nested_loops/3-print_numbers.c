@@ -7,6 +7,6 @@ void print_numbers(void){
 	int i=48;
 	for(;i<58;i++)
 		_putchar(i);
-	_putchar('\n');
+	_putchar(10);
 	return(0);
 }
