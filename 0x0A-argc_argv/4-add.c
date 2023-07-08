@@ -1,30 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /**
- * main - adds all positive numbers and prints it
- * @argc: argument count
- * @argv: argument vector
- * Return: 0 for success
+ * main - adds positive numbers.
+ * @argc: number of command line arguments.
+ * @argv: array that contains the program command line arguments.
+ * Return: 0 - success.
  */
 
 int main(int argc, char *argv[])
 {
-	int i, res;
+	int i, j, add = 0;
 
-	res = 0;
-
-	for (i = 0; i < argc; i++)
+	for (i = 1; i < argc; i++)
 	{
-		if (i > 0)
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			if (atoi(argv[i]) == 0)
+			if (!isdigit(argv[i][j]))
 			{
-				return (printf("Error\n"), 1);
+				printf("Error\n");
+				return (1);
 			}
-			res += atoi(argv[i]);
 		}
+		add += atoi(argv[i]);
 	}
-	printf("%d\n", res);
+	printf("%d\n", add);
 	return (0);
 }
