@@ -6,12 +6,13 @@
  *
  * Return: Length.
  */
-size_t _strlen(const char *str)
-{
-	size_t len = 0;
-
-	while (*str++)
-		len++;
-
-	return (len);
+int _strlen(char *s){
+int i = 0;
+    int j = 0;
+    while (s[i] != '\0') {
+        j++;
+        i++;
+    }
+    printf("%d",j);
+return j;
 }
