@@ -13,6 +13,5 @@ int i = 0;
         j++;
         i++;
     }
-    printf("%d",j);
 return j;
 }
