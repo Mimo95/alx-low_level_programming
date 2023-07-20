@@ -6,21 +6,20 @@
  * @n: param
  */
 
-
-void print_numbers(const char *separator, const unsigned int n, ...)
+int sum_them_all(const unsigned int n, ...)
 {
-	va_list valist;
-	unsigned int i;
+	va_list ap;
+	unsigned int param, sum = 0;
 
-	va_start(valist, n);
+	/* initialize the argument list from the start */
+	va_start(ap, n);
 
-	for (i = 0; i < n; i++)
-	{
-		printf("%d", va_arg(valist, int));
-		if (separator && i < n - 1)
-			printf("%s", separator);
-	}
+	/* iterate through all parameter values*/
+	for (param = 0; param < n; param++)
+		/* get the next parameter value and add it to sum*/
+		sum += va_arg(ap, int);
+	/*Clean up*/
+	va_end(ap);
 
-	printf("\n");
-	va_end(valist);
+	return (sum);
 }
