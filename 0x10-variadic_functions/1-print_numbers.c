@@ -9,18 +9,22 @@
 
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	va_list valist;
-	unsigned int i;
+	va_list ap;
+	unsigned int index;
 
-	va_start(valist, n);
+	/* initialize the argument list from the start */
+	va_start(ap, n);
 
-	for (i = 0; i < n; i++)
+	/* iterate through each argument*/
+	for (index = 0; index < n; index++)
 	{
-		printf("%d", va_arg(valist, int));
-		if (separator && i < n - 1)
+		/* print next argument */
+		printf("%d", va_arg(ap, int));
+		/* print separator only between arguments */
+		if (separator && index != n - 1)
 			printf("%s", separator);
 	}
-
+	/*clean up*/
+	va_end(ap);
 	printf("\n");
-	va_end(valist);
 }
