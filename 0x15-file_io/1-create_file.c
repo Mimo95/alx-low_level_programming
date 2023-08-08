@@ -8,11 +8,11 @@
  * Return: 1 if it success. -1 if it fails.
  */
 
-
-
 int create_file(const char *filename, char *text_content)
 {
-	int fd , nletters , rwr;
+	int fd;
+	int nletters;
+	int rwr;
 
 	if (!filename)
 		return (-1);
@@ -33,5 +33,6 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	close(fd);
+
 	return (1);
 }
