@@ -1,8 +1,18 @@
+#include "main.h"
+
+/**
+ * read_textfile - reads and prints from a file
+ * @filename: path to file
+ * @letters: chars to read
+ * Return: chars read
+ */
+
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 	char *buff;
-	ssize_t bytes, r;
+	ssize_t br, bw;
 
 	if (!filename)
 		return (0);
@@ -13,14 +23,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	buff = malloc(sizeof(char) * letters);
+	buff = malloc(letters * sizeof(char));
 	if (!buff)
 	{
 		close(fd);
 		return (0);
 	}
 
-	bytes = read(fd, buff, letters);
+	br = read(fd, buff, letters);
 
 	if (bytes == -1)
 	{
@@ -29,14 +39,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	r = write(STDOUT_FILENO, buff, bytes);
+	bw = write(STDOUT_FILENO, buff, bytes);
 
-	if (r == -1)
+	if (bw == -1)
 	{
 		close(fd);
 		free(buff);
 		return (0);
 	}
 	close(fd);
-	return (bytes);
+	return (br);
 }
