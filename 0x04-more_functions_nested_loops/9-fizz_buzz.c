@@ -17,4 +17,5 @@ void main(){
        else if(i%5==0)
        printf(" Buzz");
        else printf( "%d",i);
+       return (0);
    }
