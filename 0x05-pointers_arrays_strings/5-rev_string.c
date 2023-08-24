@@ -6,16 +6,18 @@
  */
 void rev_string(char *s)
 {
-	int i = 0, len = 0;
-	char tmp;
-
-	while (s[i++])
-		len++;
-
-	for (i = len - 1; i >= len / 2; i--)
-	{
-		tmp = s[i];
-		s[i] = s[len - i - 1];
-		s[len - i - 1] = tmp;
-	}
+	int i,f, j = 0;
+    char k;
+    
+    while (s[j] != '\0'){
+        j++;
+    }
+    f=j;
+    printf("\n%d words\n",j);
+    for (i = 0; i < f/2; i++){
+        k = s[j-1];
+        s[j-1] = s[i];
+        s[i] = k;
+        j--;
+    }
 }
