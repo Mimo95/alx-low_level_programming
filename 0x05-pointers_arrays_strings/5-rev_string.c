@@ -13,7 +13,6 @@ void rev_string(char *s)
         j++;
     }
     f=j;
-    printf("\n%d words\n",j);
     for (i = 0; i < f/2; i++){
         k = s[j-1];
         s[j-1] = s[i];
